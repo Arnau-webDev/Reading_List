@@ -1,0 +1,9 @@
+.bookCard {
+    width: 250px;
+}
+
+.bookCard img {
+    width: 100%;
+    height: 370px;
+    object-fit: cover;
+}

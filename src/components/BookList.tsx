@@ -1,26 +1,23 @@
-import styles from '../styles/Booklist.module.css';
+import BookCard from './BookCard';
 
 import { books } from '../data/books';
-import { Response } from '../interfaces/index';
+import { BookListResponse } from '../interfaces';
 
+import styles from '../styles/BookList/Booklist.module.css';
 
-const BookList = () => {
+interface Props {
+	bookList: BookListResponse
+}
+
+const BookList: React.FC<Props> = ({bookList}) => {
 
 	console.log(books);
 
-	const { library }: Response = books;
-
+	const { library } = bookList;
 
 	return (
-		<div>
-			<h1>Booklist</h1>
-			<div className={styles.bookListContainer}>
-				{library.map(({ book }) => (
-					<div key={book.ISBN} className={styles.bookCard}>
-						<img src={book.cover} alt={`${book.title} cover`} />
-					</div>
-				))}
-			</div>
+		<div className={styles.bookListContainer}>
+			{library.map(({ book }) => ( <BookCard key={book.ISBN} book={book} /> ))}
 		</div>
 	);
 };

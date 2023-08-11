@@ -1,8 +1,10 @@
-import React from 'react';
 
 const ReadingList = () => {
 	return (
-		<div>ReadingList</div>
+		<div>
+			<h1>ReadingList</h1>
+
+		</div>
 	);
 };
 
