@@ -1,23 +1,24 @@
 import BookCard from './BookCard';
 
-import { books } from '../data/books';
-import { BookListResponse } from '../interfaces';
+import { Library } from '../interfaces';
 
 import styles from '../styles/BookList/Booklist.module.css';
+import { useContext } from 'react';
+import { UIBooksContext } from '../context/UIBooksContext';
 
 interface Props {
-	bookList: BookListResponse
+	bookList: Library[]
 }
 
 const BookList: React.FC<Props> = ({bookList}) => {
 
-	console.log(books);
+	const context = useContext(UIBooksContext);
 
-	const { library } = bookList;
+	console.log(context);
 
 	return (
 		<div className={styles.bookListContainer}>
-			{library.map(({ book }) => ( <BookCard key={book.ISBN} book={book} /> ))}
+			{bookList.map(({ book }) => ( <BookCard key={book.ISBN} book={book} /> ))}
 		</div>
 	);
 };
