@@ -13,7 +13,7 @@ import { getBooksService } from './services';
 
 function App() {
 
-	const { setAllBooks, bookList } = useContext(UIBooksContext);
+	const { setAllBooks, bookList, readingList } = useContext(UIBooksContext);
 
 	const getAllBooks = async () => {
 		const { library } = await getBooksService();
@@ -35,7 +35,7 @@ function App() {
 				<BookList bookList={bookList}/>
 			</section>
 			<aside>
-				<ReadingList />
+				<ReadingList bookList={readingList}/>
 			</aside>
 		</main>
 	);

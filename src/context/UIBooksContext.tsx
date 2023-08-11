@@ -1,10 +1,11 @@
 import { createContext } from 'react';
-import { Library } from '../interfaces';
+import { Book, Library } from '../interfaces';
 
 interface ContextProps {
 	bookList: Library[],
 	readingList: Library[],
-	setAllBooks: (books: Library[]) => void
+	setAllBooks: (books: Library[]) => void,
+	addToReadingList: (book: Book) => void,
 }
 
 export const UIBooksContext = createContext({} as ContextProps);

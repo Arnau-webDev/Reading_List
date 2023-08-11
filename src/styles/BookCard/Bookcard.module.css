@@ -7,3 +7,7 @@
     height: 370px;
     object-fit: cover;
 }
+
+.cardButton {
+    width: 100%;
+}
