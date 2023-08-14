@@ -5,12 +5,14 @@ import { Library, Book } from '../interfaces';
 
 export interface UIBooksState {
     bookList: Library[];
+    initialBookList: Library[];
     readingList: Library[];
 	bookGenres: string[];
 }
 
 const UI_BOOKS_INITIAL_STATE: UIBooksState = {
 	bookList: [],
+	initialBookList: [],
 	readingList: [],
 	bookGenres: [],
 };
@@ -22,6 +24,7 @@ export const UIBooksProvider: React.FC<PropsWithChildren> = ({ children }) => {
 	const setAllBooks = (books: Library[]) => { dispatch({type: 'UI - Set Books', payload: books });};
 	const addToReadingList = (book: Book) => { dispatch({type: 'UI - Add Book To Reading List', payload: book});};
 	const setBookGenres = (books: string[]) => { dispatch({type: 'UI - Set Book Genres', payload: books});};
+	const filterByGenre = (genre: string) => { dispatch({ type: 'UI - Filter By Genre', payload: genre});};
 
 	return (
 		<UIBooksContext.Provider value={{
@@ -29,6 +32,7 @@ export const UIBooksProvider: React.FC<PropsWithChildren> = ({ children }) => {
 			setAllBooks,
 			addToReadingList,
 			setBookGenres,
+			filterByGenre,
 		}}>
 			{ children }
 		</UIBooksContext.Provider>
