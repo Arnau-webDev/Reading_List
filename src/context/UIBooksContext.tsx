@@ -5,6 +5,7 @@ interface ContextProps {
 	bookList: Library[],
 	readingList: Library[],
 	setAllBooks: (books: Library[]) => void,
+	setBookGenres: (books: string[]) => void,
 	addToReadingList: (book: Book) => void,
 }
 

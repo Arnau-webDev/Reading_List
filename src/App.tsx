@@ -10,19 +10,26 @@ import ReadingList from './components/ReadingList';
 import './App.css';
 
 import { getBooksService } from './services';
+import { getBookGenres } from './utils';
 
 function App() {
 
-	const { setAllBooks, bookList, readingList } = useContext(UIBooksContext);
+	const { setAllBooks, setBookGenres, bookList, readingList } = useContext(UIBooksContext);
 
 	const getAllBooks = async () => {
 		const { library } = await getBooksService();
 		setAllBooks(library);
 	};
 
+	const getAllBookGenres = async () => {
+		const bookGenres = await getBookGenres();
+		setBookGenres(bookGenres);
+	};
+
 	// recuperar Books
 	useEffect(() => {
 		getAllBooks();
+		getAllBookGenres();
 	}, []);
 
 	if(!bookList) return (<h3>Loading...</h3>);
