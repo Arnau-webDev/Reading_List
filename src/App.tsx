@@ -11,6 +11,7 @@ import './App.css';
 
 import { getBooksService } from './services';
 import { getBookGenres } from './utils';
+import ReadingListInfo from './components/ReadingListInfo';
 
 function App() {
 
@@ -38,6 +39,7 @@ function App() {
 		<main className='mainContainer'>
 			<section>
 				<h1>Book List</h1>
+				<ReadingListInfo />
 				<BookFilters />
 				<BookList bookList={bookList}/>
 			</section>

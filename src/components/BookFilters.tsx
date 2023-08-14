@@ -5,11 +5,12 @@ import { ALL_GENRES } from '../constants';
 const BookFilters = () => {
 
 	const [pages, setPages] = useState(0);
-	const { bookGenres, filterByGenre } = useContext(UIBooksContext);
+	const { bookGenres, filterByGenre, filterByPages } = useContext(UIBooksContext);
 
-	const handleOnChange = ({ target }: React.ChangeEvent<HTMLInputElement>): void => {
+	const handleOnChangePages = ({ target }: React.ChangeEvent<HTMLInputElement>): void => {
 		const { value } = target;
 		setPages(value as unknown as number);
+		filterByPages(value as unknown as number);
 	};
 
 	const handleChangeGenre = ({ target }: React.ChangeEvent<HTMLSelectElement>): void => {
@@ -29,8 +30,8 @@ const BookFilters = () => {
 
 			<div>
 				<div>
-					<label htmlFor="numOfPages">Number of Pages</label>
-					<input type="range" name='numOfPages' min={0} max={1200} value={pages} onChange={(e) => handleOnChange(e)}/>
+					<label htmlFor="numOfPages">Maximum number of Pages</label>
+					<input type="range" name='numOfPages' min={0} max={1200} value={pages} onChange={(e) => handleOnChangePages(e)}/>
 				</div>
 				<span>{pages}</span>
 			</div>

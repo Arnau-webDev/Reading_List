@@ -9,6 +9,7 @@ interface ContextProps {
 	setBookGenres: (books: string[]) => void,
 	addToReadingList: (book: Book) => void,
 	filterByGenre: (genre: string) => void,
+	filterByPages: (pages: number) => void,
 	clearReadingList: () => void,
 }
 

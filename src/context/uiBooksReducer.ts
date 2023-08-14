@@ -37,6 +37,11 @@ export const uiBooksReducer = ( state: UIBooksState, action: UIBooksActionType):
 				if (book.genre === action.payload) return { book };
 			})
 		};
+	case 'UI - Filter By Number Of Pages':
+		return {
+			...state,
+			bookList: state.initialBookList.filter(({book}) => (book.pages <= action.payload))
+		};
 	case 'UI - Clear Reading List': 
 		return {
 			...state,
