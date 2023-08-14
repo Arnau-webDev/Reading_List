@@ -23,6 +23,7 @@ export const UIBooksProvider: React.FC<PropsWithChildren> = ({ children }) => {
 
 	const setAllBooks = (books: Library[]) => { dispatch({type: 'UI - Set Books', payload: books });};
 	const addToReadingList = (book: Book) => { dispatch({type: 'UI - Add Book To Reading List', payload: book});};
+	const clearReadingList = () => { dispatch({ type: 'UI - Clear Reading List' });};
 	const setBookGenres = (books: string[]) => { dispatch({type: 'UI - Set Book Genres', payload: books});};
 	const filterByGenre = (genre: string) => { dispatch({ type: 'UI - Filter By Genre', payload: genre});};
 
@@ -33,6 +34,7 @@ export const UIBooksProvider: React.FC<PropsWithChildren> = ({ children }) => {
 			addToReadingList,
 			setBookGenres,
 			filterByGenre,
+			clearReadingList
 		}}>
 			{ children }
 		</UIBooksContext.Provider>

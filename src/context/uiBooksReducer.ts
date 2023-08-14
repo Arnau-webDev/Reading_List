@@ -8,6 +8,7 @@ type UIBooksActionType =
 | { type: 'UI - Set Book Genres', payload: string[] }
 | { type: 'UI - Filter By Genre', payload: string }
 | { type: 'UI - Filter By Number Of Pages', payload: number }
+| { type: 'UI - Clear Reading List' }
 
 export const uiBooksReducer = ( state: UIBooksState, action: UIBooksActionType): UIBooksState => {
 
@@ -35,6 +36,11 @@ export const uiBooksReducer = ( state: UIBooksState, action: UIBooksActionType):
 				if(action.payload === ALL_GENRES) return { book };
 				if (book.genre === action.payload) return { book };
 			})
+		};
+	case 'UI - Clear Reading List': 
+		return {
+			...state,
+			readingList: [],
 		};
 	default:
 		return state;
