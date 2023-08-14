@@ -3,14 +3,17 @@ import { Book } from '../interfaces';
 
 import styles from '../styles/BookCard/Bookcard.module.css';
 import { UIBooksContext } from '../context/UIBooksContext';
+import { listContainsBook } from '../utils';
 
 interface Props {
     book: Book
 }
 
 const BookCard: React.FC<Props> = ({book}) => {
-	const { addToReadingList } = useContext(UIBooksContext);
+	const { readingList, addToReadingList } = useContext(UIBooksContext);
+
 	const handleClick = () => {
+		if(listContainsBook(book, readingList)) return;
 		addToReadingList(book);
 	};
 

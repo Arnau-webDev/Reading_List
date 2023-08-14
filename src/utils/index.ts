@@ -1,3 +1,4 @@
+import { Book, Library } from '../interfaces';
 import { getBookGenresService, getBooksService } from '../services';
 
 export const getBooks = async () => {
@@ -14,4 +15,12 @@ export const getBookGenres = async () => {
 	});
 
 	return bookGenres;
+};
+
+export const listContainsBook = (obj: Book, list: Library[]) =>  {
+	for (let i = 0; i < list.length; i++) {
+		if (list[i].book === obj) return true;
+	}
+
+	return false;
 };

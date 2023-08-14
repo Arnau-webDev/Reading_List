@@ -18,15 +18,15 @@ export const uiBooksReducer = ( state: UIBooksState, action: UIBooksActionType):
 			initialBookList: action.payload,
 			bookList: action.payload
 		};
-	case 'UI - Add Book To Reading List':
-		return {
-			...state,
-			readingList: [...state.readingList, {book: action.payload}]
-		};
 	case 'UI - Set Book Genres':
 		return {
 			...state,
 			bookGenres: action.payload
+		};
+	case 'UI - Add Book To Reading List':
+		return {
+			...state,
+			readingList: [...state.readingList, {book: action.payload}]
 		};
 	case 'UI - Filter By Genre':
 		return {
