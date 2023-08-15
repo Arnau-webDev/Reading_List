@@ -1,6 +1,7 @@
 #root {
   /* max-width: 1280px; */
   padding: 2rem;
+  --animate-delay: 0.2s;
 }
 
 .mainContainer {
@@ -8,7 +9,3 @@
   justify-content: center;
   flex-wrap: nowrap;
 }
-
-/* .mainContainer>section {
-  flex-grow: 1;
-} */
