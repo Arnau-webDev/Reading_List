@@ -44,6 +44,7 @@ const BookCard: React.FC<Props> = ({book, isInReadingList = false}) => {
 			<div className={`${styles.info} animate__animated animate__fadeInUp animate__faster animate__delay-2s`}>
 				<Info />
 			</div> 
+			<div>{book.pages}</div>
 		</div>
 	);
 };

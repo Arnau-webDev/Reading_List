@@ -41,7 +41,7 @@ export const uiBooksReducer = ( state: UIBooksState, action: UIBooksActionType):
 	case 'UI - Filter By Number Of Pages':
 		return {
 			...state,
-			bookList: state.initialBookList.filter(({book}) => (book.pages <= action.payload)),
+			bookList: state.initialBookList.filter(({book}) => (book.pages <= action.payload)).sort((a,b) => a.book.pages - b.book.pages),
 		};
 	case 'UI - Clear Reading List': 
 		return {
