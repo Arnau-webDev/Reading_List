@@ -1,6 +1,7 @@
 .bookCard {
     width: 240px;
     position: relative;
+    margin: 0 auto;
 }
 
 .bookCard:hover .addSign,

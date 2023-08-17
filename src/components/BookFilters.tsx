@@ -2,6 +2,8 @@ import { useState, useContext } from 'react';
 import { UIBooksContext } from '../context/UIBooksContext';
 import { ALL_GENRES } from '../constants';
 
+import styles from '../styles/BookFilters/BookFilters.module.css';
+
 const BookFilters = () => {
 
 	const [pages, setPages] = useState(0);
@@ -19,21 +21,22 @@ const BookFilters = () => {
 	};
 
 	return (
-		<div>
-			<div>
+		<div className={styles.container}>
+			<div className={styles.filtersContainer}>
 				<label htmlFor="genre">Genres</label>
-				<select name="genre" onChange={(e) => handleChangeGenre(e)}>
-					<option value={ALL_GENRES}>{ALL_GENRES}</option>
-					{bookGenres.map((genre) => ( <option key={genre} value={genre}>{genre}</option> ))}
-				</select>
+				<div className={styles.filters}>
+					<select id='genre' name="genre" onChange={(e) => handleChangeGenre(e)}>
+						<option value={ALL_GENRES}>{ALL_GENRES}</option>
+						{bookGenres.map((genre) => ( <option key={genre} value={genre}>{genre}</option> ))}
+					</select>
+				</div>
 			</div>
 
-			<div>
-				<div>
-					<label htmlFor="numOfPages">Maximum number of Pages</label>
-					<input type="range" name='numOfPages' min={0} max={1200} value={pages} onChange={(e) => handleOnChangePages(e)}/>
+			<div className={styles.filtersContainer}>
+				<label htmlFor="numOfPages">Num of Pages: {pages}</label>
+				<div className={styles.filters}>
+					<input id='numOfPages' type="range" name='numOfPages' min={0} max={1200} value={pages} onChange={(e) => handleOnChangePages(e)}/>
 				</div>
-				<span>{pages}</span>
 			</div>
 		</div>
 	);

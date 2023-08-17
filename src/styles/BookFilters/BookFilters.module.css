@@ -1,0 +1,19 @@
+.container {
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    margin: 2em 0;
+}
+
+.filtersContainer {
+    margin-right: 2em;
+    width: 150px
+}
+
+.filters {
+    padding: 12px 0;
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    height: 35px;
+}
