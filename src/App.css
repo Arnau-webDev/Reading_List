@@ -1,5 +1,6 @@
 #root {
-  /* max-width: 1280px; */
+  max-width: 1650px;
+  margin: 0 auto;
   padding: 2rem;
   --animate-delay: 0.2s;
 }
@@ -9,4 +10,8 @@
   justify-content: center;
   flex-wrap: nowrap;
   column-gap: 4em;
+}
+
+.bookSection {
+  min-width: 1000px;
 }

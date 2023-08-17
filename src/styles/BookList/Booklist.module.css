@@ -1,10 +1,6 @@
 .bookListContainer {
     display: flex;
     justify-content: start;
-    gap: 2rem;
+    gap: 1.5rem;
     flex-wrap: wrap;
-}
-
-.bookListContainer>div {
-    margin: 0 auto;
 }

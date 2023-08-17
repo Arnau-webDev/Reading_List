@@ -37,7 +37,7 @@ function App() {
 	
 	return (
 		<main className='mainContainer'>
-			<section>
+			<section className='bookSection'>
 				<h1>Book List</h1>
 				<ReadingListInfo />
 				<BookFilters />
