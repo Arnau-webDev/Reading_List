@@ -1,4 +1,4 @@
-import { useContext } from 'react';
+import { useContext, useRef } from 'react';
 import { Book } from '../interfaces';
 
 import { UIBooksContext } from '../context/UIBooksContext';
@@ -8,26 +8,31 @@ import AddSign from './Icons/AddSign';
 
 import styles from '../styles/BookCard/Bookcard.module.css';
 import 'animate.css';
+import MinusSign from './Icons/MinusSign';
 
 interface Props {
-    book: Book
+    book: Book,
+	isInReadingList?: boolean,
 }
 
-const BookCard: React.FC<Props> = ({book}) => {
-	const { readingList, addToReadingList } = useContext(UIBooksContext);
+const BookCard: React.FC<Props> = ({book, isInReadingList = false}) => {
+	const { readingList, addToReadingList, removeFromReadingList } = useContext(UIBooksContext);
 
-	const handleClick = () => {
+	const handleAddBook = () => {
 		if(listContainsBook(book, readingList)) return;
 		addToReadingList(book);
+	};
+
+	const handleRemoveBook = () => {
+		removeFromReadingList(book);
 	};
 
 	return (
 		<>
 			<div key={book.ISBN} className={styles.bookCard}>
 				<img src={book.cover} alt={`${book.title} cover`} />
-				{/* <button onClick={handleClick} className={styles.cardButton}>Add to reading list</button> */}
-				<div className={`${styles.addSign} animate__animated animate__fadeInUp animate__faster`}>
-					<AddSign />
+				<div className={`${styles.addSign} animate__animated animate__fadeInUp animate__faster`} onClick={ isInReadingList ? handleRemoveBook : handleAddBook}>
+					{isInReadingList ? (<MinusSign />) : (<AddSign />)}
 				</div> 
 				<div className={`${styles.info} animate__animated animate__fadeInUp animate__faster animate__delay-2s`}>
 					<Info />

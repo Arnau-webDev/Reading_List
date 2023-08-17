@@ -20,7 +20,7 @@ const ReadingList: React.FC<Props> = ({ bookList }) => {
 			<h1>ReadingList</h1>
 			<button onClick={handleClick}>Clear reading list</button>
 			<div>
-				{bookList.map(({ book }) => ( <BookCard key={book.ISBN} book={book} /> ))}
+				{bookList.map(({ book }) => ( <BookCard key={book.ISBN} book={book} isInReadingList /> ))}
 			</div>
 		</div>
 	);

@@ -39,16 +39,3 @@
 .cardButton {
     width: 100%;
 }
-
-
-
-/* div>ul {
-    visibility: hidden;
-    opacity: 0;
-    transition: visibility 0s, opacity 0.5s linear;
-}
-
-div:hover>ul {
-    visibility: visible;
-    opacity: 1;
-} */
