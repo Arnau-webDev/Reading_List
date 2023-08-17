@@ -1,4 +1,4 @@
-import { useContext, useRef } from 'react';
+import { useContext } from 'react';
 import { Book } from '../interfaces';
 
 import { UIBooksContext } from '../context/UIBooksContext';
@@ -17,7 +17,6 @@ interface Props {
 
 const BookCard: React.FC<Props> = ({book, isInReadingList = false}) => {
 	const { readingList, addToReadingList, removeFromReadingList } = useContext(UIBooksContext);
-	const bookCard = useRef();
 
 	const handleAddBook = () => {
 		if(listContainsBook(book, readingList)) return;
@@ -28,13 +27,6 @@ const BookCard: React.FC<Props> = ({book, isInReadingList = false}) => {
 		removeFromReadingList(book);
 	};
 
-	// const element = bookCard.current;
-	// element.classList.add('animate__animated animate__fadeOutUp animate__faster');
-
-	// element.addEventListener('animationend', () => {
-	// 	console.log('end');
-	// });
-
 	return (
 		<div key={book.ISBN} className={styles.bookCard}>
 			<img src={book.cover} alt={`${book.title} cover`} />
@@ -44,7 +36,6 @@ const BookCard: React.FC<Props> = ({book, isInReadingList = false}) => {
 			<div className={`${styles.info} animate__animated animate__fadeInUp animate__faster animate__delay-2s`}>
 				<Info />
 			</div> 
-			<div>{book.pages}</div>
 		</div>
 	);
 };

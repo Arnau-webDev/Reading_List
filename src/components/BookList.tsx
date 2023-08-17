@@ -3,6 +3,7 @@ import BookCard from './BookCard';
 import { Library } from '../interfaces';
 
 import styles from '../styles/BookList/Booklist.module.css';
+import NoContent from './NoContent';
 
 interface Props {
 	bookList: Library[]
@@ -11,9 +12,16 @@ interface Props {
 const BookList: React.FC<Props> = ({bookList}) => {
 
 	return (
-		<div className={styles.bookListContainer}>
-			{bookList.map(({ book }) => ( <BookCard key={book.ISBN} book={book} /> ))}
-		</div>
+		<>
+			{ bookList.length < 1 
+				? ( <NoContent /> ) 
+				: (
+					<div className={styles.bookListContainer}>
+						{  bookList.map(({ book }) => ( <BookCard key={book.ISBN} book={book} /> )) }
+					</div>
+				)
+			}
+		</>
 	);
 };
 
